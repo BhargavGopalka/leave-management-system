@@ -1,5 +1,5 @@
 <br><br>
-<div>
+<div *ngIf="!loginView">
   <button type="button" (click)="onClickLogin('admin')">Admin Login</button>
   <button type="button" (click)="onClickLogin('employee')">Employee Login</button>
 </div>
@@ -8,21 +8,22 @@
 <div *ngIf="loginView">
   <form [formGroup]="loginForm" (submit)="onSubmitLoginForm(loginForm.value, loginForm.valid)">
     <div>
-      <a>Username :</a>
-      <input type="text" name="email" id="email" placeholder="E-mail" formControlName="email">
+      <a class="nameField">Username :</a>
+      <input class="inputField" type="text" name="email" id="email" placeholder="E-mail" formControlName="email">
       <div *ngIf="emailValidation(loginForm.controls['email'])" style="color: red">{{emailErrorMessage}}</div>
     </div>
     <br><br>
 
     <div>
-      <a>Password :</a>
-      <input type="password" name="password" id="password" placeholder="Password" formControlName="password">
+      <a class="nameField">Password :</a>
+      <input class="inputField" type="password" name="password" id="password" placeholder="Password" formControlName="password">
       <div *ngIf="passwordValidation(loginForm.controls['password'])" style="color: red">{{passwordErrorMessage}}</div>
     </div>
     <br><br>
 
     <div>
       <button type="submit" value="Login">Login</button>
+      <button type="submit" (click)="onClickBack()">Go Back</button>
     </div>
   </form>
 </div>

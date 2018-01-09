@@ -69,16 +69,16 @@ export class LoginComponent implements OnInit {
       if (this.path === 'admin') {
         if (formValue.email === 'leaveManager@gmail.com' && formValue.password === 'aaaaaa') {
           sessionStorage.setItem('Authorization', 'employee');
-          this.routes.navigate(['dashboard']);
+          this.routes.navigate(['adminDashboard']);
         } else {
           this.toastr.error('Username or Password is not correct!');
         }
       }
 
       if (this.path === 'employee') {
-        if (formValue.email === 'leaveManager@gmail.com' && formValue.password === 'aaaaaa') {
+        if (formValue.email === 'employee@gmail.com' && formValue.password === 'aaaaaa') {
           sessionStorage.setItem('Authorization', 'employee');
-          this.routes.navigate(['employeeDashboard']);
+          this.routes.navigate(['dashboard']);
         } else {
           this.toastr.error('Username or Password is not correct!');
         }
@@ -90,6 +90,10 @@ export class LoginComponent implements OnInit {
   onClickLogin(path) {
     this.loginView = true;
     this.path = path;
+  }
+
+  onClickBack() {
+    this.loginView = false;
   }
 
 }

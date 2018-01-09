@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-action',
@@ -11,14 +11,28 @@ export class ActionComponent implements OnInit {
   holidaysRemainMonth = 2;
 
   requestForm = false;
+  multipleDays = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
   onClickLeaverRequest() {
     this.requestForm = true;
+  }
+
+  onChangeMultipleDays(e) {
+    if (e.target.checked === true) {
+      this.multipleDays = true;
+    } else {
+      this.multipleDays = false;
+    }
+  }
+
+  onClickCancel() {
+    this.requestForm = false;
   }
 
 }

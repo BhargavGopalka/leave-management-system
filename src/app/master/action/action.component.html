@@ -1,12 +1,12 @@
 <br><br>
 <div *ngIf="!requestForm">
   <div>
-    <span>Number of holidays you get per month : <b>{{holidaysPerMonth}}</b></span>
+    <span>Number of leave you can get per month : <b>{{holidaysPerMonth}}</b></span>
   </div>
   <br>
 
   <div>
-    <span>Number of holidays remained this month : <b>{{holidaysRemainMonth}}</b></span>
+    <span>Number of leave remained this month : <b>{{holidaysRemainMonth}}</b></span>
   </div>
   <br><br>
 
@@ -16,5 +16,68 @@
 </div>
 
 <div *ngIf="requestForm">
+  <fieldset>
+    <form>
 
+      <br>
+      <div>
+        <span class="nameField">First Name: </span>
+        <input class="inputField" type="text">
+      </div>
+
+      <br>
+      <div>
+        <span class="nameField">Last Name: </span>
+        <input class="inputField" type="text">
+      </div>
+
+      <br>
+      <div>
+        <span class="nameField">Department: </span>
+        <input class="inputField" type="text">
+      </div>
+
+      <br>
+      <div>
+        <span class="nameField">Leave Day <span *ngIf="multipleDays">(to)</span></span>
+        <input class="inputField" type="date">
+        <input type="checkbox" (change)="onChangeMultipleDays($event)">Multiple Days
+        <input type="checkbox">Half Day
+      </div>
+
+      <br>
+      <div *ngIf="multipleDays">
+        <span class="nameField">Leave Day (from)</span>
+        <input class="inputField" type="date">
+        <input type="checkbox">Half Day
+      </div>
+
+      <br>
+      <div>
+        <span class="nameField">Type of Leave</span>
+        <select class="inputField">
+          <option value="0">Sick Leave</option>
+          <option value="1">Vacation</option>
+          <option value="2">Casual Leave</option>
+          <option value="3">Extended Leave</option>
+          <option value="4">Maternity/Paternity Leave</option>
+          <option value="5">Others</option>
+        </select>
+      </div>
+
+      <br>
+      <div>
+        <span class="nameField">Other Remarks:</span>
+        <textarea style="margin: 0px; width: 341px; height: 72px;"></textarea>
+      </div>
+
+      <br>
+      <div>
+        <button type="submit">Request</button>
+        <button type="reset" (click)="onClickCancel()">Cancel</button>
+      </div>
+
+      <br>
+    </form>
+  </fieldset>
 </div>
