@@ -1,0 +1,20 @@
+<br><br>
+<div *ngIf="!requestForm">
+  <div>
+    <span>Number of holidays you get per month : <b>{{holidaysPerMonth}}</b></span>
+  </div>
+  <br>
+
+  <div>
+    <span>Number of holidays remained this month : <b>{{holidaysRemainMonth}}</b></span>
+  </div>
+  <br><br>
+
+  <div>
+    <button type="button" (click)="onClickLeaverRequest()">Request for leave</button>
+  </div>
+</div>
+
+<div *ngIf="requestForm">
+
+</div>

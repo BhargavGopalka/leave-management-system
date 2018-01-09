@@ -1,0 +1,68 @@
+<br><br>
+<!-- Update Profile Form -->
+<div>
+  <fieldset>
+    <div>
+      <h3>Welcome Bhargav!</h3>
+    </div>
+    <br>
+
+
+    <form [formGroup]="profileForm">
+
+      <div>
+        <a class="nameField">First Name:</a>
+        <input type="text" class="inputField" placeholder="Enter First Name" formControlName="firstName"/>
+        <a *ngIf="profileForm.controls['firstName'].touched && firstNameValidation(profileForm.controls['firstName'])"
+           style="color: red">{{firstNameErrorMessage}}
+        </a>
+      </div>
+      <br>
+
+      <div>
+        <a class="nameField">Last Name:</a>
+        <input type="text" class="inputField" placeholder="Enter Last Name" formControlName="lastName"/>
+        <a *ngIf="profileForm.controls['lastName'].touched && lastNameValidation(profileForm.controls['lastName'])"
+           style="color: red">{{lastNameErrorMessage}}
+        </a>
+      </div>
+      <br>
+
+      <div>
+        <a class="nameField">Email:</a>
+        <input type="text" class="inputField" placeholder="Enter Email Address" formControlName="email">
+        <a *ngIf="profileForm.controls['email'].touched && emailValidation(profileForm.controls['email'])"
+           style="color: red">{{emailErrorMessage}}
+        </a>
+      </div>
+      <br>
+
+      <div>
+        <a class="nameField">Mobile Number:</a>
+        <input type="text" class="inputField" placeholder="Enter mobile number" formControlName="mobileNumber">
+        <a
+          *ngIf="profileForm.controls['mobileNumber'].touched && mobileValidation(profileForm.controls['mobileNumber'])"
+          style="color: red">{{mobileErrorMessage}}
+        </a>
+      </div>
+      <br>
+
+      <!--<div>-->
+        <!--<a class="nameField">Image</a>-->
+        <!--<img [src]="image_url">-->
+        <!--<input type="file" class="inputField" placeholder="Enter Image" (change)="fileChange($event)"-->
+               <!--accept="image/gif, image/jpeg, image/png, image/jpg">-->
+      <!--</div>-->
+      <!--<br>-->
+
+      <div>
+        <button type="submit">Update
+        </button>
+        <button type="button" (click)="onCancelProfileForm()">Cancel</button>
+      </div>
+      <br>
+
+    </form>
+  </fieldset>
+</div>
+<br><br>
